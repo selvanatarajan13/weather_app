@@ -26,7 +26,7 @@ This weather application provides users with accurate and up-to-date weather inf
 https://mail.google.com/mail/u/0?ui=2&ik=1c13d089af&attid=0.1&permmsgid=msg-a:r304071085464119562&th=19566c7eb4e69375&view=fimg&fur=ip&permmsgid=msg-a:r304071085464119562&sz=s0-l75-ft&attbid=ANGjdJ97HxbYS0OvLxjCgaJQs7MvP3rqMP0mxPNMQyd0tkZRJpWsSrjrvKyIBubyqUsv-0owjvVe8hutmq5zOElYH7R_V0Bah98S9eBI8z5hQByCP4PLCOxTttFrQoE&disp=emb&realattid=ii_m7w145xq0&zw
 
 ### Mobile view
-https://mail.google.com/mail/u/0?ui=2&ik=1c13d089af&attid=0.2&permmsgid=msg-a:r304071085464119562&th=19566c7eb4e69375&view=fimg&fur=ip&permmsgid=msg-a:r304071085464119562&sz=s0-l75-ft&attbid=ANGjdJ9-v_0SRqe_jbOKkzu9zphidZ0rrBegYak_N2Lj6631dr7pEysfJ2MOvctEyKVmZC_LqUcAnx7w72J2x-KDdjnlyAcNoaAEC1Q-pbwA35rm3jy75mTBovcF_Xw&disp=emb&realattid=ii_m7w185rl1&zw
+file:///C:/Users/User/OneDrive/Desktop/Mobile%20View.jpeg
 
 ## Contributing
 Please read our [contribution guidelines](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md) before submitting issues or pull requests
