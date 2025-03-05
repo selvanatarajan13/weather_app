@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer components {
+
+    .app {
+        @apply min-h-screen flex items-center justify-center bg-gray-100
+    }
+
+    .app-container {
+        @apply bg-white shadow-md rounded-lg p-6 w-full max-w-4xl
+    }
+
+    .app-name {
+        @apply text-2xl font-bold text-center mb-4
+    }
+
+    .Search-form {
+        @apply flex items-center space-x-3
+    }
+
+    .Search-input {
+        @apply border border-gray-300 p-2 rounded-lg w-full
+    }
+
+    .Search-btn {
+        @apply bg-blue-600 text-white p-2 rounded-lg
+    }
+}
