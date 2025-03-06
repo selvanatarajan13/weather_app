@@ -7,25 +7,30 @@ const SearchBar = ({ onSearch }) => {
 
     const [city, setCity] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // /console.log("Console ",city);
-        handleSearch(city);
-    };
-
+    
     const handleItem = (e) => {
         setCity(e.target.value);
         // console.log(e.target.value)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // console.log("Console ",city);
+        if (!city.trim()) return;
+        handleSearch(city);
+        setCity("");
+
+    };
+
     return (
         <form onSubmit={handleSubmit} className="Search-form">
             <input 
                 type="text"
-                name="city"
-                placeholder="Enter City name..."
+                value={city}
+                placeholder="Enter city name..."
                 className="Search-input"
                 onChange={handleItem}
+                autoFocus
             />
             <button type="submit" className="Search-btn">
                 Search

@@ -6,7 +6,7 @@ import Temp from '../assets/temp.png';
 
 const WeatherDashboard = () => {
 
-    const { weatherData, addFavorite } = useContext(WeatherDataContext);
+    const { weatherData, addFavorite, favoriteCities } = useContext(WeatherDataContext);
     const { name, main, weather, sys } = weatherData;
 
 
@@ -26,14 +26,20 @@ const WeatherDashboard = () => {
             
             <p className="text-sm">Country Code: {sys.country}</p>
 
-            <button 
-                type="submit"
-                key={name}
-                onClick={() => addFavorite(name)}
-                className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-            >
-                Save as Favorite
-            </button>
+            {
+                !favoriteCities.includes(name) ? (
+                    <button 
+                        type="submit"
+                        key={name}
+                        onClick={() => addFavorite(name)}
+                        className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                    >
+                        Add Favorite
+                    </button>
+                ) : (
+                    <p className="text-grey-600 font-semibold">Already in Favorite</p>
+                )
+            }
 
             <WeatherDetails />
             

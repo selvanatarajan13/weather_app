@@ -7,12 +7,15 @@ export const DataProvider = ({ children }) => {
 
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState("");
-    const [favorite, setFavorite] = useState([]);
+
+    const [favoriteCities, setFavoriteCities] = useState(() => {
+        const storedCities = JSON.parse(localStorage.getItem("favoriteCitiesList"));
+            return storedCities || [];
+    });
     
     const handleSearch = async (city) => {
 
         if (!city) {
-            //console.log("city name is required!")
             return;
         }
 
@@ -21,7 +24,6 @@ export const DataProvider = ({ children }) => {
             if (response.cod === 200) {
                 setWeatherData(response);
                 setError(""); // Clear previous errors
-                // console.log(response);
             } else {
                 setWeatherData(null)
                 throw new Error(response.data.message || "City not found");
@@ -29,46 +31,39 @@ export const DataProvider = ({ children }) => {
         } catch (error) {
             setWeatherData(null)
             setError("City not found. Please try again. Enter correct city name..");
-            // console.error("Error fetching weather:", error);
         }
     };
-
-
 
     // useEffect(() => {
-    //     handleSearch(); // Default city
-    // }, []);
+    //     const storedCities = JSON.parse(localStorage.getItem("favoriteCitiesList"));
+    //     if(storedCities != null) {
+    //         setFavoriteCities(storedCities)
+    //     } else {
+    //         setFavoriteCities([]);
+    //     }
+    // }, [])
+    
 
-    // Load favorites from localStorage when app starts
     useEffect(() => {
-        const storedFavorites = JSON.parse(localStorage.getItem("favoriteCities")) || [];
-        setFavorite(storedFavorites);
-    }, []);
+        localStorage.setItem("favoriteCitiesList", JSON.stringify(favoriteCities));
+    }, [favoriteCities])
 
-    // const [favorite, setFavorite] = useState(() => {
-    //     return JSON.parse(localStorage.getItem("favorites")) || [];
-    // });
 
-    // Update localStorage whenever favorites change
-    useEffect(() => {
-        localStorage.setItem("favoriteCities", JSON.stringify(favorite));
-    }, [favorite]);
 
-    const addFavorite = (city) => {
-        if (!favorite.includes(city)) {
-            // console.log(city)
-            setFavorite([...favorite, city]);
+    const addFavorite = (cityName) => {
+        if (!favoriteCities.includes(cityName)) {
+            setFavoriteCities([...favoriteCities, cityName]);
         }
-    };
+    }
 
-    const removeFavorite = (city) => {
-        // console.log(city);
-        setFavorite(favorite.filter(fav => fav !== city));
+    
+    const removeFavorite = (cityName) => {
+        setFavoriteCities(favoriteCities.filter(fav => fav !== cityName));
     };
 
     return (
         <WeatherDataContext.Provider value={{
-            weatherData, error, handleSearch, favorite, addFavorite, removeFavorite
+            weatherData, error, handleSearch, favoriteCities, addFavorite, removeFavorite
         }}>
             {children}
         </WeatherDataContext.Provider>

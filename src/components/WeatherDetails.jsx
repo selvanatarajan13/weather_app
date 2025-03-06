@@ -14,7 +14,7 @@ const WeatherDetails = () => {
         <div className="grid grid-cols-2 gap-5 mt-4 text-gray-600">
             <div className="flex flex-col items-center">
                 <img src={Humidity} width="30px" height="20px" className="flex justify-center" />
-                <p className="font-bold">Humidity</p>
+                <p className="font-bold">Humidity:</p>
                 <p>{main.humidity}%</p>
             </div>
             <div className="flex flex-col items-center">
