@@ -15,9 +15,13 @@ export const DataProvider = ({ children }) => {
     
     const handleSearch = async (city) => {
 
-        if (!city) {
+        const data = city.trim();
+        if (!data) {
+            setError("Please ensure enter the city name before clicking search button");
             return;
         }
+
+        console.log(city);
 
         try {
             const response = await WeatherService(city);

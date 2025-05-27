@@ -16,7 +16,7 @@ const SearchBar = ({ onSearch }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log("Console ",city);
-        if (!city.trim()) return;
+        // if (!city.trim()) return;
         handleSearch(city);
         setCity("");
 
